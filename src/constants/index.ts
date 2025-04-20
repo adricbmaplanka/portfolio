@@ -2,7 +2,7 @@
 export const ABOUT_DATA = {
   name: "Adric Busani Maplanka",
   title: "Full Stack Developer",
-  description: `I'm a Full Stack Developer with a passion for creating dynamic web applications and services. With expertise in React, NestJS, and microservices architecture, I build scalable solutions that deliver exceptional user experiences. I'm currently focused on API management with Apigee and creating modular frontend applications using React and Styled Components.`,
+  description: `I'm a Full Stack Developer with a passion for creating dynamic applications and services. I build scalable solutions that deliver exceptional user experiences.`,
   location: "Gauteng, South Africa",
   email: "adricbusanim@gmail.com",
   phone: "+27844652844",

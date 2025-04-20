@@ -57,9 +57,10 @@ export function About() {
           >
             <p className="leading-relaxed text-muted-foreground">
               I'm a Full Stack Developer based in {ABOUT_DATA.location} with a
-              passion for building scalable web applications and services. My
+              passion for building scalable software solutions and services. My
               expertise spans across frontend and backend technologies, with a
-              strong focus on React ecosystem and microservices architecture.
+              strong focus on Node, JavaScript, React ecosystem and
+              microservices architecture.
             </p>
           </motion.div>
 
