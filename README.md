@@ -1,6 +1,6 @@
 # Adric Busani Maplanka - Portfolio Website
 
-A modern, responsive portfolio website built with Next.js, Tailwind CSS v4, and Shadcn UI.
+A responsive portfolio website built with Next.js, Tailwind CSS v4, and Shadcn UI.
 
 ## Features
 
