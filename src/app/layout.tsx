@@ -15,7 +15,7 @@ const fontSans = FontSans({
 export const metadata: Metadata = {
   title: "Adric Busani Maplanka | Full Stack Developer",
   description:
-    "Personal portfolio of Adric Busani Maplanka, a Full Stack Developer specializing in React, NestJS, and Microservices",
+    "Personal portfolio of Adric Busani Maplanka, a Full Stack Developer",
 };
 
 export default function RootLayout({
