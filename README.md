@@ -32,7 +32,7 @@ A modern, responsive portfolio website built with Next.js, Tailwind CSS v4, and 
 1. Clone this repository or download the files:
 
 ```bash
-git clone https://github.com/adricbmaplanka/portfolio
+git clone (https://github.com/adricbmaplanka/portfolio)
 cd portfolio
 ```
 
