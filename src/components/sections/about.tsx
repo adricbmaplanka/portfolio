@@ -55,11 +55,11 @@ export function About() {
             className="mb-12 max-w-3xl text-center"
           >
             <p className="leading-relaxed text-muted-foreground">
-              I'm a Full Stack Developer based in {ABOUT_DATA.location} with a
-              passion for building scalable software solutions and services. My
-              expertise spans across frontend and backend technologies, with a
-              strong focus on Node, JavaScript, React ecosystem and
-              microservices architecture.
+              I&apos;m a Full Stack Developer based in {ABOUT_DATA.location}{" "}
+              with a passion for building scalable software solutions and
+              services. My expertise spans across frontend and backend
+              technologies, with a strong focus on Node, JavaScript, React
+              ecosystem and microservices architecture.
             </p>
           </motion.div>
 
