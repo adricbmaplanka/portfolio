@@ -33,7 +33,7 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex mx-auto h-16 items-center justify-between">
         <Link href="/" className="flex items-center">
           <span className="text-xl font-bold tracking-tight">
             Adric<span className="text-primary">.</span>

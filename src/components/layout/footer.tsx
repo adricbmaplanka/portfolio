@@ -43,7 +43,7 @@ export function Footer() {
 
   return (
     <footer id="contact" className="bg-muted/50 py-12">
-      <div className="container px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <motion.div
           ref={ref}
           initial="hidden"
@@ -51,7 +51,10 @@ export function Footer() {
           variants={footerVariants}
           className="flex flex-col"
         >
-          <motion.div variants={itemVariants} className="mb-12 text-center">
+          <motion.div
+            variants={itemVariants}
+            className="mb-12 text-center mx-auto"
+          >
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
               Get In Touch
             </h2>

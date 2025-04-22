@@ -34,7 +34,7 @@ export function About() {
 
   return (
     <section id="about" className="py-16 md:py-24" ref={ref}>
-      <div className="container px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial="hidden"
           animate={inView ? "visible" : "hidden"}

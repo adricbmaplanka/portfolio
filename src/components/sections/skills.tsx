@@ -29,7 +29,7 @@ export function Skills() {
 
   return (
     <section id="skills" className="py-16 md:py-24 bg-muted/50">
-      <div className="container px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <motion.div
           ref={ref}
           initial="hidden"
