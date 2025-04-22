@@ -10,17 +10,14 @@ export function ModeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // Handle initial mount
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Toggle between light and dark mode
   const toggleTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
   };
 
-  // Placeholder while we wait for component to mount
   if (!mounted) {
     return (
       <Button variant="outline" size="icon" className="rounded-full w-9 h-9">

@@ -6,9 +6,9 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { X } from "lucide-react";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 interface MobileNavProps {
   open: boolean;
@@ -16,21 +16,35 @@ interface MobileNavProps {
 }
 
 export function MobileNav({ open, onClose }: MobileNavProps) {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const handleLinkClick = () => {
     onClose();
   };
 
+  const currentTheme = mounted ? resolvedTheme : "light";
+  const isDarkMode = currentTheme === "dark";
+
   return (
     <Sheet open={open} onOpenChange={onClose}>
-      <SheetContent side="right" className="w-full max-w-xs border-l">
+      <SheetContent
+        side="right"
+        className="w-full max-w-xs border-l items-center"
+        style={{
+          backgroundColor: isDarkMode ? "#000000" : "#ffffff",
+          color: isDarkMode ? "#ffffff" : "#000000",
+        }}
+      >
         <SheetHeader className="mb-8">
           <div className="flex justify-between items-center">
             <SheetTitle className="text-left text-xl font-bold">
               Navigation
             </SheetTitle>
-            <Button variant="ghost" size="icon" onClick={onClose}>
-              <X className="h-4 w-4" />
-            </Button>
           </div>
         </SheetHeader>
         <nav className="flex flex-col space-y-6">
