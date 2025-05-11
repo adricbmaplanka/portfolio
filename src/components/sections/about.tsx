@@ -2,14 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { ABOUT_DATA, EXPERIENCE_DATA } from "@/constants";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { ABOUT_DATA } from "@/constants";
 
 export function About() {
   const [ref, inView] = useInView({
