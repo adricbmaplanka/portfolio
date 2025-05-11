@@ -112,16 +112,15 @@ export const PROJECT_PLACEHOLDERS = [
     image: "/images/projects/project1.jpg",
   },
   {
-    title: "Microservices API Gateway",
-    description:
-      "An API gateway built with NestJS that routes and manages requests to various microservices.",
-    tags: ["NestJS", "TypeScript", "Docker", "Apigee"],
+    title: "Customer Support Chatbot",
+    description: "A Chatbot for supporting business customers FAQ's .",
+    tags: ["Python", "Flask", "Django", ""],
     image: "/images/projects/project2.jpg",
   },
   {
-    title: "Mobile Money Transfer App",
+    title: "Pomodoro App",
     description:
-      "A React Native app for secure money transfers with multi-factor authentication.",
+      "A React Native app for managing your time using the Pomodoro Technique.",
     tags: ["React Native", "Redux", "REST API", "Biometrics"],
     image: "/images/projects/project3.jpg",
   },
