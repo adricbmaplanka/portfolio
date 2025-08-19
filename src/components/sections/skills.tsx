@@ -2,9 +2,10 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { SKILL_CATEGORIES } from "@/constants";
+import { SKILL_CATEGORIES } from "@/data";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { jura } from "@/lib/fonts";
 
 export function Skills() {
   const [ref, inView] = useInView({
@@ -38,7 +39,7 @@ export function Skills() {
           className="flex flex-col items-center"
         >
           <motion.div variants={itemVariants} className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl ${jura.className}`}>
               Skills & Technologies
             </h2>
             <p className="mt-4 text-muted-foreground md:text-xl">
