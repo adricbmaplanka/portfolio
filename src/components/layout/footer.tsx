@@ -1,11 +1,12 @@
 "use client";
 
-import { ABOUT_DATA, SOCIAL_LINKS } from "@/constants";
+import { ABOUT_DATA, SOCIAL_LINKS } from "@/data";
 import { Separator } from "@/components/ui/separator";
 import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { jura } from "@/lib/fonts";
 
 export function Footer() {
   const [ref, inView] = useInView({
@@ -55,7 +56,9 @@ export function Footer() {
             variants={itemVariants}
             className="mb-12 text-center mx-auto"
           >
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+            <h2
+              className={`text-3xl font-bold tracking-tighter sm:text-4xl ${jura.className}`}
+            >
               Get In Touch
             </h2>
             <p className="mt-4 text-muted-foreground md:text-lg">

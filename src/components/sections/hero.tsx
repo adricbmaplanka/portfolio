@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ABOUT_DATA } from "@/constants";
+import { ABOUT_DATA } from "@/data";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
+import { jura } from "@/lib/fonts";
 
 export function Hero() {
   return (
@@ -16,7 +17,9 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+            <h1
+              className={`text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl ${jura.className}`}
+            >
               {ABOUT_DATA.name}
             </h1>
             <p className="mt-2 text-xl text-muted-foreground md:text-2xl">

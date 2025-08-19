@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { PROJECT_PLACEHOLDERS } from "@/constants";
+import { PROJECT_PLACEHOLDERS } from "@/data";
 import {
   Card,
   CardContent,
@@ -14,6 +14,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
+import { jura } from "@/lib/fonts";
 
 export function Projects() {
   const [ref, inView] = useInView({
@@ -47,7 +48,9 @@ export function Projects() {
           className="flex flex-col items-center"
         >
           <motion.div variants={itemVariants} className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            <h2
+              className={`text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl ${jura.className}`}
+            >
               My Projects
             </h2>
             <p className="mt-4 text-muted-foreground md:text-xl">
@@ -96,8 +99,7 @@ export function Projects() {
 
           <motion.div variants={itemVariants} className="mt-12">
             <p className="text-center text-muted-foreground">
-              More projects coming soon! This section will be updated with my
-              actual completed projects.
+              More projects coming soon!
             </p>
           </motion.div>
         </motion.div>
