@@ -56,7 +56,9 @@ export function Footer() {
             variants={itemVariants}
             className="mb-12 text-center mx-auto"
           >
-            <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl ${jura.className}`}>
+            <h2
+              className={`text-3xl font-bold tracking-tighter sm:text-4xl ${jura.className}`}
+            >
               Get In Touch
             </h2>
             <p className="mt-4 text-muted-foreground md:text-lg">

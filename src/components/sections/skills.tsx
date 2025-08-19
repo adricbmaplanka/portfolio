@@ -39,7 +39,9 @@ export function Skills() {
           className="flex flex-col items-center"
         >
           <motion.div variants={itemVariants} className="mb-12 text-center">
-            <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl ${jura.className}`}>
+            <h2
+              className={`text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl ${jura.className}`}
+            >
               Skills & Technologies
             </h2>
             <p className="mt-4 text-muted-foreground md:text-xl">
