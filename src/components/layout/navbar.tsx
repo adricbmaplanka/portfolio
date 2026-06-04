@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "./mobile-nav";
-import { Menu } from "lucide-react";
+import { TiThMenu } from "react-icons/ti";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -34,7 +34,7 @@ export function Navbar() {
       }`}
     >
       <div className="container flex mx-auto h-16 items-center justify-between">
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center pl-4 md:pl-0">
           <span className="text-xl font-bold tracking-tight">
             Adric<span className="text-primary">.</span>
           </span>
@@ -54,12 +54,12 @@ export function Navbar() {
           >
             Skills
           </Link>
-          <Link
+          {/* <Link
             href="#projects"
             className="text-sm font-medium transition-colors hover:text-primary"
           >
             Projects
-          </Link>
+          </Link> */}
           <Link
             href="#contact"
             className="text-sm font-medium transition-colors hover:text-primary"
@@ -78,7 +78,7 @@ export function Navbar() {
             className="md:hidden"
             onClick={() => setMobileNavOpen(true)}
           >
-            <Menu className="h-5 w-5" />
+            <TiThMenu className="h-5 w-5" />
             <span className="sr-only">Toggle menu</span>
           </Button>
         </div>

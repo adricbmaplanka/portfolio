@@ -2,7 +2,13 @@
 
 import { ABOUT_DATA, SOCIAL_LINKS } from "@/data";
 import { Separator } from "@/components/ui/separator";
-import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+} from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -32,11 +38,11 @@ export function Footer() {
   const renderSocialIcon = (iconName: string) => {
     switch (iconName) {
       case "GitHub":
-        return <Github className="h-5 w-5" />;
+        return <FaGithub className="h-5 w-5" />;
       case "Linkedin":
-        return <Linkedin className="h-5 w-5" />;
+        return <FaLinkedin className="h-5 w-5" />;
       case "Mail":
-        return <Mail className="h-5 w-5" />;
+        return <MdEmail className="h-5 w-5" />;
       default:
         return null;
     }
@@ -62,8 +68,8 @@ export function Footer() {
               Get In Touch
             </h2>
             <p className="mt-4 text-muted-foreground md:text-lg">
-              Feel free to contact me for work opportunities or just to say
-              hello!
+              Feel free to contact me for work opportunities or project
+              collaborations 🙂
             </p>
           </motion.div>
 
@@ -75,7 +81,7 @@ export function Footer() {
             <div className="flex flex-col space-y-4">
               <h3 className="text-xl font-bold">Contact Information</h3>
               <div className="flex items-center gap-2 text-muted-foreground">
-                <Mail className="h-4 w-4 flex-shrink-0" />
+                <MdEmail className="h-4 w-4 flex-shrink-0" />
                 <a
                   href={`mailto:${ABOUT_DATA.email}`}
                   className="hover:text-primary transition-colors"
@@ -84,7 +90,7 @@ export function Footer() {
                 </a>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
-                <Phone className="h-4 w-4 flex-shrink-0" />
+                <FaPhoneAlt className="h-4 w-4 flex-shrink-0" />
                 <a
                   href={`tel:${ABOUT_DATA.phone}`}
                   className="hover:text-primary transition-colors"
@@ -93,7 +99,7 @@ export function Footer() {
                 </a>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
-                <MapPin className="h-4 w-4 flex-shrink-0" />
+                <FaMapMarkerAlt className="h-4 w-4 flex-shrink-0" />
                 <span>{ABOUT_DATA.location}</span>
               </div>
             </div>

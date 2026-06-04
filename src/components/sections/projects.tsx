@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { jura } from "@/lib/fonts";
 
 export function Projects() {
@@ -84,11 +84,11 @@ export function Projects() {
                   </CardContent>
                   <CardFooter className="flex gap-2">
                     <Button variant="outline" size="sm" className="gap-1">
-                      <Github className="h-4 w-4" />
+                      <FaGithub className="h-4 w-4" />
                       Code
                     </Button>
                     <Button variant="outline" size="sm" className="gap-1">
-                      <ExternalLink className="h-4 w-4" />
+                      <FaExternalLinkAlt className="h-4 w-4" />
                       Demo
                     </Button>
                   </CardFooter>
