@@ -3,7 +3,9 @@
 import { motion } from "framer-motion";
 import { ABOUT_DATA } from "@/data";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { FaArrowDown } from "react-icons/fa6";
 import Link from "next/link";
 import { jura } from "@/lib/fonts";
 
@@ -45,48 +47,15 @@ export function Hero() {
             <Button asChild size="lg" className="gap-2">
               <Link href="#contact">
                 Contact Me
-                <Mail className="h-4 w-4" />
+                <MdEmail className="h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="gap-2">
+            {/* <Button asChild variant="outline" size="lg" className="gap-2">
               <Link href="#projects">
                 View Projects
-                <ArrowDown className="h-4 w-4" />
+                <FaArrowDown className="h-4 w-4" />
               </Link>
-            </Button>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="mt-8 flex items-center justify-center gap-4"
-          >
-            <Link
-              href={`https://${ABOUT_DATA.github}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <Github className="h-5 w-5" />
-              <span className="sr-only">GitHub</span>
-            </Link>
-            <Link
-              href={`https://${ABOUT_DATA.linkedin}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <Linkedin className="h-5 w-5" />
-              <span className="sr-only">LinkedIn</span>
-            </Link>
-            <Link
-              href={`mailto:${ABOUT_DATA.email}`}
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <Mail className="h-5 w-5" />
-              <span className="sr-only">Email</span>
-            </Link>
+            </Button> */}
           </motion.div>
 
           <motion.div
@@ -105,7 +74,7 @@ export function Hero() {
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              <ArrowDown className="h-6 w-6" />
+              <FaArrowDown className="h-6 w-6" />
               <span className="sr-only">Scroll down</span>
             </Button>
           </motion.div>

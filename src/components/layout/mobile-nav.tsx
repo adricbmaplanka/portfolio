@@ -62,13 +62,13 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
           >
             Skills
           </Link>
-          <Link
+          {/* <Link
             href="#projects"
             onClick={handleLinkClick}
             className="flex items-center py-2 text-base font-medium transition-colors hover:text-primary"
           >
             Projects
-          </Link>
+          </Link> */}
           <Link
             href="#contact"
             onClick={handleLinkClick}

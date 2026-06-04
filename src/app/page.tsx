@@ -1,4 +1,3 @@
-// src/app/page.tsx
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
@@ -14,7 +13,7 @@ export default function Home() {
         <Hero />
         <About />
         <Skills />
-        <Projects />
+        {/* <Projects /> */}
       </main>
       <Footer />
     </div>
