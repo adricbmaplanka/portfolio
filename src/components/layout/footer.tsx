@@ -2,7 +2,12 @@
 
 import { ABOUT_DATA, SOCIAL_LINKS } from "@/data";
 import { Separator } from "@/components/ui/separator";
-import { FaGithub, FaLinkedin, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+} from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -63,7 +68,8 @@ export function Footer() {
               Get In Touch
             </h2>
             <p className="mt-4 text-muted-foreground md:text-lg">
-              Feel free to contact me for work opportunities or project collaborations 🙂
+              Feel free to contact me for work opportunities or project
+              collaborations 🙂
             </p>
           </motion.div>
 

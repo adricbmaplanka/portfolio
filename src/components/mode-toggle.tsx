@@ -11,7 +11,10 @@ export function ModeToggle() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const handle = requestAnimationFrame(() => {
+      setMounted(true);
+    });
+    return () => cancelAnimationFrame(handle);
   }, []);
 
   const toggleTheme = () => {
@@ -28,7 +31,6 @@ export function ModeToggle() {
 
   return (
     <Button
-      // variant="outline"
       size="icon"
       onClick={toggleTheme}
       className="rounded-full w-9 h-9 relative"
@@ -43,9 +45,19 @@ export function ModeToggle() {
           className="absolute inset-0 flex items-center justify-center"
         >
           {resolvedTheme === "dark" ? (
-            <FluentEmoji emoji="☀️" type="3d" size={35} className="animate-[spin_20s_linear_infinite] hover:scale-105 transition-transform"/>
+            <FluentEmoji
+              emoji="☀️"
+              type="3d"
+              size={35}
+              className="animate-[spin_20s_linear_infinite] hover:scale-105 transition-transform"
+            />
           ) : (
-            <FluentEmoji emoji="🌙" type="3d" size={35} className="[filter:grayscale(1)_brightness(0.6)] animate-[pulse_3s_ease-in-out_infinite] hover:rotate-12 transition-transform duration-300"/>
+            <FluentEmoji
+              emoji="🌙"
+              type="3d"
+              size={35}
+              className="[filter:grayscale(1)_brightness(0.6)] animate-[pulse_3s_ease-in-out_infinite] hover:rotate-12 transition-transform duration-300"
+            />
           )}
         </motion.div>
       </AnimatePresence>

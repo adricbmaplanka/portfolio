@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { ABOUT_DATA } from "@/data";
 import { Button } from "@/components/ui/button";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FaArrowDown } from "react-icons/fa6";
 import Link from "next/link";
