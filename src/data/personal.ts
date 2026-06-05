@@ -6,5 +6,5 @@ export const ABOUT_DATA = {
   email: "adricbusanim@gmail.com",
   phone: "+27844652844",
   linkedin: "linkedin.com/in/adric-busani-maplanka",
-  github: "github.com/AdricBM",
+  github: "github.com/adricbmaplanka",
 };
