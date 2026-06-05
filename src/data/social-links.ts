@@ -1,7 +1,7 @@
 export const SOCIAL_LINKS = [
   {
     name: "GitHub",
-    url: "https://github.com/AdricBM",
+    url: "https://github.com/adricbmaplanka",
     icon: "GitHub",
   },
   {
