@@ -2,167 +2,106 @@
 
 import { ABOUT_DATA, SOCIAL_LINKS } from "@/data";
 import { Separator } from "@/components/ui/separator";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaMapMarkerAlt,
-  FaPhoneAlt,
-} from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import { jura } from "@/lib/fonts";
+import {
+  AnimatedSection,
+  AnimatedItem,
+} from "@/components/ui/animated-section";
+import React from "react";
+import { FaArrowRight } from "react-icons/fa";
 
 export function Footer() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const footerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
-
-  const renderSocialIcon = (iconName: string) => {
-    switch (iconName) {
-      case "GitHub":
-        return <FaGithub className="h-5 w-5" />;
-      case "Linkedin":
-        return <FaLinkedin className="h-5 w-5" />;
-      case "Mail":
-        return <MdEmail className="h-5 w-5" />;
-      default:
-        return null;
-    }
-  };
-
   return (
-    <footer id="contact" className="bg-muted/50 py-12">
-      <div className="container mx-auto px-4 md:px-6">
-        <motion.div
-          ref={ref}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={footerVariants}
-          className="flex flex-col"
-        >
+    <AnimatedSection
+      id="contact"
+      className="bg-background relative pt-24 pb-8 overflow-hidden"
+      staggerChildren={0.1}
+    >
+      <div className="container mx-auto px-4 md:px-6 flex flex-col">
+        {/* Availability Marquee Banner */}
+        <AnimatedItem className="mb-24 flex overflow-hidden whitespace-nowrap">
           <motion.div
-            variants={itemVariants}
-            className="mb-12 text-center mx-auto"
+            className="flex items-center space-x-4 text-sm font-medium tracking-widest text-muted-foreground uppercase"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
           >
+            {[...Array(6)].map((_, i) => (
+              <React.Fragment key={i}>
+                <span>Available for work</span>
+                <span className="text-primary">•</span>
+                <span>Open to new opportunities</span>
+                <span className="text-primary">•</span>
+              </React.Fragment>
+            ))}
+          </motion.div>
+        </AnimatedItem>
+
+        <div className="flex flex-col mb-32">
+          {/* Giant CTA */}
+          <AnimatedItem>
             <h2
-              className={`text-3xl font-bold tracking-tighter sm:text-4xl ${jura.className}`}
+              className={`text-[12vw] leading-none font-bold tracking-tighter uppercase ${jura.className}`}
             >
-              Get In Touch
+              Let&apos;s work
             </h2>
-            <p className="mt-4 text-muted-foreground md:text-lg">
-              Feel free to contact me for work opportunities or project
-              collaborations 🙂
-            </p>
-          </motion.div>
+          </AnimatedItem>
+          <AnimatedItem className="flex items-center gap-4">
+            <h2
+              className={`text-[12vw] leading-none font-bold tracking-tighter uppercase text-muted-foreground ${jura.className}`}
+            >
+              Together
+            </h2>
+          </AnimatedItem>
 
-          <motion.div
-            variants={itemVariants}
-            className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
-          >
-            {/* Contact Info */}
-            <div className="flex flex-col space-y-4">
-              <h3 className="text-xl font-bold">Contact Information</h3>
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <MdEmail className="h-4 w-4 flex-shrink-0" />
-                <a
-                  href={`mailto:${ABOUT_DATA.email}`}
-                  className="hover:text-primary transition-colors"
-                >
-                  {ABOUT_DATA.email}
-                </a>
-              </div>
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <FaPhoneAlt className="h-4 w-4 flex-shrink-0" />
-                <a
-                  href={`tel:${ABOUT_DATA.phone}`}
-                  className="hover:text-primary transition-colors"
-                >
-                  {ABOUT_DATA.phone}
-                </a>
-              </div>
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <FaMapMarkerAlt className="h-4 w-4 flex-shrink-0" />
-                <span>{ABOUT_DATA.location}</span>
-              </div>
-            </div>
+          {/* Magnetic/Hover Email Link */}
+          <AnimatedItem className="mt-12 group w-fit">
+            <a
+              href={`mailto:${ABOUT_DATA.email}`}
+              className="flex items-center gap-4 text-2xl md:text-4xl font-medium tracking-tight hover:text-primary transition-colors"
+            >
+              {ABOUT_DATA.email}
+              <motion.span
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                whileHover={{ rotate: -45, scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaArrowRight />
+              </motion.span>
+            </a>
+          </AnimatedItem>
+        </div>
 
-            {/* Social Links */}
-            <div className="flex flex-col space-y-4">
-              <h3 className="text-xl font-bold">Connect With Me</h3>
-              <div className="flex flex-col space-y-3">
-                {SOCIAL_LINKS.map((link, index) => (
-                  <Link
-                    key={index}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {renderSocialIcon(link.icon)}
-                    <span>{link.name}</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Quick Links */}
-            <div className="flex flex-col space-y-4">
-              <h3 className="text-xl font-bold">Quick Links</h3>
-              <div className="flex flex-col space-y-3">
-                <Link
-                  href="#about"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  About
-                </Link>
-                <Link
-                  href="#skills"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Skills
-                </Link>
-                <Link
-                  href="#projects"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Projects
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div variants={itemVariants}>
-            <Separator className="my-8" />
-            <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-              <p className="text-sm text-muted-foreground">
-                © {new Date().getFullYear()} Adric Busani Maplanka. All rights
-                reserved.
+        <AnimatedItem>
+          <Separator className="my-8" />
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+            <div className="flex flex-col">
+              <p className="text-sm font-medium">
+                © {new Date().getFullYear()} Adric Busani Maplanka.
               </p>
               <p className="text-sm text-muted-foreground">
-                Built with Next.js, Tailwind CSS, and Shadcn UI
+                Built with Next.js & Tailwind CSS
               </p>
             </div>
-          </motion.div>
-        </motion.div>
+
+            {/* Minimal Social Links */}
+            <div className="flex flex-wrap items-center gap-4 md:gap-8">
+              {SOCIAL_LINKS.map((link, index) => (
+                <Link
+                  key={index}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-bold uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </AnimatedItem>
       </div>
-    </footer>
+    </AnimatedSection>
   );
 }

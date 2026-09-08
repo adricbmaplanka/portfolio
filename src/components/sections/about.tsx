@@ -1,64 +1,66 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import { ABOUT_DATA } from "@/data";
 import { jura } from "@/lib/fonts";
+import { useRef } from "react";
+import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+
+interface WordProps {
+  children: string;
+  progress: MotionValue<number>;
+  range: [number, number];
+}
+
+function Word({ children, progress, range }: WordProps) {
+  const opacity = useTransform(progress, range, [0.2, 1]);
+  return <motion.span style={{ opacity }}>{children}</motion.span>;
+}
 
 export function About() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 0.8", "end 0.5"],
   });
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
+  const text = `I'm a Full Stack Developer based in ${ABOUT_DATA.location} with a passion for building scalable software solutions and services. My expertise spans across frontend and backend technologies, with a strong focus on Node, JavaScript, React ecosystem and microservices architecture.`;
+  const words = text.split(" ");
 
   return (
-    <section id="about" className="py-16 md:py-24" ref={ref}>
-      <div className="container mx-auto px-4 md:px-6">
-        <motion.div
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={containerVariants}
-          className="flex flex-col items-center"
-        >
-          <motion.div variants={itemVariants} className="mb-8 text-center">
+    <section id="about" className="py-24 md:py-40 relative">
+      <div
+        ref={containerRef}
+        className="container mx-auto px-4 md:px-6 relative"
+      >
+        <div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
+          {/* Left Side: Sticky Heading */}
+          <div className="md:w-1/3 md:sticky md:top-32">
             <h2
-              className={`text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl ${jura.className}`}
+              className={`text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl ${jura.className}`}
             >
               About Me
             </h2>
-            <p className="mt-4 text-muted-foreground md:text-xl">
-              My background and professional journey
+            <div className="w-12 h-1 bg-primary mt-6 rounded-full" />
+            <p className="mt-6 text-muted-foreground uppercase tracking-widest text-sm font-medium">
+              Background & Journey
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={itemVariants}
-            className="mb-12 max-w-3xl text-center"
-          >
-            <p className="leading-relaxed text-muted-foreground">
-              I&apos;m a Full Stack Developer based in {ABOUT_DATA.location}{" "}
-              with a passion for building scalable software solutions and
-              services. My expertise spans across frontend and backend
-              technologies, with a strong focus on Node, JavaScript, React
-              ecosystem and microservices architecture.
+          {/* Right Side: Scroll-Reveal Text */}
+          <div className="md:w-2/3">
+            <p className="text-2xl md:text-4xl lg:text-5xl leading-tight md:leading-tight lg:leading-tight font-medium flex flex-wrap gap-x-2 gap-y-2">
+              {words.map((word, i) => {
+                const start = i / words.length;
+                const end = start + 1 / words.length;
+                return (
+                  <Word key={i} progress={scrollYProgress} range={[start, end]}>
+                    {word}
+                  </Word>
+                );
+              })}
             </p>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

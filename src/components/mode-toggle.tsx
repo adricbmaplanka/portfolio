@@ -11,10 +11,7 @@ export function ModeToggle() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const handle = requestAnimationFrame(() => {
-      setMounted(true);
-    });
-    return () => cancelAnimationFrame(handle);
+    setMounted(true);
   }, []);
 
   const toggleTheme = () => {
@@ -31,9 +28,10 @@ export function ModeToggle() {
 
   return (
     <Button
+      variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="rounded-full w-9 h-9 relative"
+      className="rounded-full w-9 h-9 relative cursor-pointer"
     >
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
@@ -42,7 +40,7 @@ export function ModeToggle() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 20, opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="absolute inset-0 flex items-center justify-center"
+          className="absolute inset-0 flex items-center justify-center cursor-pointer"
         >
           {resolvedTheme === "dark" ? (
             <FluentEmoji

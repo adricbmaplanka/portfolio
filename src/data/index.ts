@@ -3,3 +3,4 @@ export { EXPERIENCE_DATA } from "./experience";
 export { SKILL_CATEGORIES } from "./skills";
 export { PROJECT_PLACEHOLDERS } from "./projects";
 export { SOCIAL_LINKS } from "./social-links";
+export { NAV_LINKS } from "./navigation";

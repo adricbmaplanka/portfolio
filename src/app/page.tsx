@@ -7,9 +7,9 @@ import { Projects } from "@/components/sections/projects";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col relative">
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 relative">
         <Hero />
         <About />
         <Skills />
